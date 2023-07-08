@@ -1,0 +1,3287 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RMCLink.Interop</name>
+    </assembly>
+    <members>
+        <member name="T:RMCLinkNET.CancelledException">
+            <summary>
+            This exception will be thrown by the <b>Connect</b> method or any Read or Write method
+            if the operation is cancelled by a call to <b>Disconnect</b> or <b>CancelRequest</b> on
+            another thread.
+            </summary>
+        </member>
+        <member name="M:RMCLinkNET.CancelledException.#ctor">
+            <summary>
+            Initializes a new instance of the <b>CancelledException</b> class.
+            </summary>
+        </member>
+        <member name="M:RMCLinkNET.CancelledException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <b>CancelledException</b> class with a
+            specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:RMCLinkNET.CancelledException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <b>CancelledException</b> class with a
+            specified error message and a reference to the inner exception that is the cause
+            of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="inner">The exception that is the cause of the current exception. If the
+            <paramref name="inner"/> parameter is not a null reference, the current exception
+            is raised in a <b>catch</b> block that handles the inner exception.</param>
+        </member>
+        <member name="M:RMCLinkNET.CancelledException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <b>CancelledException</b> class with
+            serialized data.
+            </summary>
+            <param name="info">The object that holds the serialized object data.</param>
+            <param name="context">The contextual information about the source or destination.</param>
+        </member>
+        <member name="T:RMCLinkNET.ConnectionNotMadeException">
+            <summary>
+            This exception can be thrown by the <b>Connect</b> method to indicate the the connection
+            could not be established.
+            </summary>
+        </member>
+        <member name="M:RMCLinkNET.ConnectionNotMadeException.#ctor">
+            <summary>
+            Initializes a new instance of the <b>ConnectionNotMadeException</b> class.
+            </summary>
+        </member>
+        <member name="M:RMCLinkNET.ConnectionNotMadeException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <b>ConnectionNotMadeException</b> class with a
+            specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:RMCLinkNET.ConnectionNotMadeException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <b>ConnectionNotMadeException</b> class with a
+            specified error message and a reference to the inner exception that is the cause
+            of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="inner">The exception that is the cause of the current exception. If the
+            <paramref name="inner"/> parameter is not a null reference, the current exception
+            is raised in a <b>catch</b> block that handles the inner exception.</param>
+        </member>
+        <member name="M:RMCLinkNET.ConnectionNotMadeException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <b>ConnectionNotMadeException</b> class with
+            serialized data.
+            </summary>
+            <param name="info">The object that holds the serialized object data.</param>
+            <param name="context">The contextual information about the source or destination.</param>
+        </member>
+        <member name="T:RMCLinkNET.Constants100">
+            <summary>
+            Miscellaneous constants for use when communicating with the RMC100.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.Constants100.rmc100StsRegsPerAxis">
+            <summary>
+            (10) Number of registers in each axis's <b>fn100StatusAxis<i>n</i></b> file. This
+            can be used primarily when computing how many registers to read when you wish to
+            read status registers for multiple axes.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.Constants100.rmc100CmdRegsPerAxis">
+            <summary>
+            (6) Number of registers in each axis's <b>fn100CommandAxis<i>n</i></b> file. This
+            can be used primarily when computing how many registers to write when you wish to
+            send commands to multiple axes.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.Constants100.rmc100ParamRegsPerAxis">
+            <summary>
+            (16) Number of registers in each axis's <b>fn100ParameterAxis<i>n</i></b> file. This
+            can be used primarily when computing how many registers to read or write when you
+            wish to read or write the parameters of multiple axes.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.Constants100.rmc100RegsPerStep">
+            <summary>
+            (8) Number of registers per step in the <b>fn100StepTable</b> file. This can be used
+            to calculate the <b>element</b> parameter in read and write methods.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.Constants100.rmc100RegsPerI2EInput">
+            <summary>
+            (8) Number of registers per input line in the Input-to-Event table in the
+            <b>fn100I2ERisingEdges</b> and <b>fn100I2EFallingEdges</b> files. This can be used
+            to calculate the <b>element</b> parameter in read and write methods.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.Constants100.rmc100RegsPerProfile">
+            <summary>
+            (4) Number of registers per profile in the <b>fn100ProfileTable</b> file. This can be used
+            to calculate the <b>element</b> parameter in read and write methods.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.Constants100.rmc100RegsPerPlotFile">
+            <summary>
+            (1024) Number of registers in each plot file <b>fn100PlotAxis0Set0</b> through
+            <b>fn100PlotAxis7Set5</b>.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.Constants100.rmc100MaxAxes">
+            <summary>
+            (8) Number of axes on which the RMC100 addressing is based on. This can be used in some
+            calculations of the <b>file</b> or <b>element</b> parameters
+            in read and write methods.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.Constants100.rmc100PlotFilesPerAxis">
+            <summary>
+            (6) Number of plot files per axis. This can be used to compute the file to use to read
+            up plot data for a particular axis.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.Constants100.rmc100PTPrecision">
+            <summary>
+            (0) Extra Precision Plot Type. This can be used when reading from or writing to the
+            <b>fn100PlotTypes</b> file.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.Constants100.rmc100PTCommands">
+            <summary>
+            (1) Command Plot Type. This can be used when reading from or writing to the
+            <b>fn100PlotTypes</b> file.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.Constants100.rmc100PTEvents">
+            <summary>
+            (2) Event Step Plot Type. This can be used when reading from or writing to the
+            <b>fn100PlotTypes</b> file.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.Constants100.rmc100PTCounts">
+            <summary>
+            (3) Raw Counts Plot Type. This can be used when reading from or writing to the
+            <b>fn100PlotTypes</b> file.
+            </summary>
+        </member>
+        <member name="T:RMCLinkNET.Constants200">
+            <summary>
+            Miscellaneous constants for use when communicating with the RMC200.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.Constants200.rmc200CmdRegsPerAxis">
+            <summary>
+            (10) For calculating the <b>element</b> parameter when writing to the <b>fn200CommandArea</b> file.
+            </summary>
+        </member>
+        <member name="T:RMCLinkNET.Constants150">
+            <summary>
+            Miscellaneous constants for use when communicating with the RMC150.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.Constants150.rmc150CmdRegsPerAxis">
+            <summary>
+            (10) For calculating the <b>element</b> parameter when writing to the <b>fn150CommandArea</b> file.
+            </summary>
+        </member>
+        <member name="T:RMCLinkNET.Constants70">
+            <summary>
+            Miscellaneous constants for use when communicating with the RMC70.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.Constants70.rmc70CmdRegsPerAxis">
+            <summary>
+            (6) For calculating the <b>element</b> parameter when writing to the <b>fn70CommandArea</b> file.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.Constants70.rmc70LrgCmdRegsPerAxis">
+            <summary>
+            (10) For calculating the <b>element</b> parameter when writing to the <b>fn70LrgCommandArea</b> file.
+            </summary>
+        </member>
+        <member name="T:RMCLinkNET.DeviceType">
+            <summary>
+            These constants are used when calling RMCLink.CreateEthernetLink and
+            RMCLink.CreateSerialLink to select which type of controller will be
+            connected to the link.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.DeviceType.Unknown">
+            <summary>
+            Unspecified device.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.DeviceType.RMC100">
+            <summary>
+            RMC100-series controller.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.DeviceType.RMC70">
+            <summary>
+            RMC70-series controller.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.DeviceType.RMC150">
+            <summary>
+            RMC150-series controller.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.DeviceType.RMC200">
+            <summary>
+            RMC200-series controller.
+            </summary>
+        </member>
+        <member name="T:RMCLinkNET.FileNumber100">
+            <summary>
+            File numbers used when communicating with the RMC100.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100StatusAxis0">
+            <summary>
+            (0) Axis 0 Status Registers (10 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100StatusAxis1">
+            <summary>
+            (1) Axis 1 Status Registers (10 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100StatusAxis2">
+            <summary>
+            (2) Axis 2 Status Registers (10 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100StatusAxis3">
+            <summary>
+            (3) Axis 3 Status Registers (10 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100StatusAxis4">
+            <summary>
+            (4) Axis 4 Status Registers (10 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100StatusAxis5">
+            <summary>
+            (5) Axis 5 Status Registers (10 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100StatusAxis6">
+            <summary>
+            (6) Axis 6 Status Registers (10 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100StatusAxis7">
+            <summary>
+            (7) Axis 7 Status Registers (10 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100CommandAxis0">
+            <summary>
+            (8) Axis 0 Command Registers (6 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100CommandAxis1">
+            <summary>
+            (9) Axis 1 Command Registers (6 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100CommandAxis2">
+            <summary>
+            (10) Axis 2 Command Registers (6 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100CommandAxis3">
+            <summary>
+            (11) Axis 3 Command Registers (6 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100CommandAxis4">
+            <summary>
+            (12) Axis 4 Command Registers (6 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100CommandAxis5">
+            <summary>
+            (13) Axis 5 Command Registers (6 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100CommandAxis6">
+            <summary>
+            (14) Axis 6 Command Registers (6 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100CommandAxis7">
+            <summary>
+            (15) Axis 7 Command Registers (6 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100ParameterAxis0">
+            <summary>
+            (16) Axis 0 Parameter Registers (16 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100ParameterAxis1">
+            <summary>
+            (17) Axis 1 Parameter Registers (16 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100ParameterAxis2">
+            <summary>
+            (18) Axis 2 Parameter Registers (16 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100ParameterAxis3">
+            <summary>
+            (19) Axis 3 Parameter Registers (16 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100ParameterAxis4">
+            <summary>
+            (20) Axis 4 Parameter Registers (16 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100ParameterAxis5">
+            <summary>
+            (21) Axis 5 Parameter Registers (16 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100ParameterAxis6">
+            <summary>
+            (22) Axis 6 Parameter Registers (16 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100ParameterAxis7">
+            <summary>
+            (23) Axis 7 Parameter Registers (16 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100StepTable">
+            <summary>
+            (24) Step Table (2048 elements: 256 steps with 8 elements each)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100I2ERisingEdges">
+            <summary>
+            (25) Input-to-Event Table, Rising Edges (128 elements: 16 inputs with 8 elements (1 per axis) each)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100I2EFallingEdges">
+            <summary>
+            (26) Input-to-Event Table, Falling Edges (128 elements: 16 inputs with 8 elements (1 per axis) each)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100StatusMap">
+            <summary>
+            (27) Status Map (Modbus Plus and PROFIBUS only) (32 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100ProfileTable">
+            <summary>
+            (28) Profile Table (64 elements: 16 profiles with 4 elements each)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotType">
+            <summary>
+            (29) Plot Type (8 elements: one per axis)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100DIORegs">
+            <summary>
+            (30) Discrete I/O Image (8 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotTime">
+            <summary>
+            (30) Plot Time (8 elements: one per axis)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100ParamError">
+            <summary>
+            (31) Last Parameter Error (8 elements: one per axis)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100FWRev">
+            <summary>
+            (32) Firmware Revision Information
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis0Set0">
+            <summary>
+            (208) Axis 0 Plot, Target Position Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis0Set1">
+            <summary>
+            (209) Axis 0 Plot, Actual Position Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis0Set2">
+            <summary>
+            (210) Axis 0 Plot, Drive Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis0Set3">
+            <summary>
+            (211) Axis 0 Plot, Status Bits Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis0Set4">
+            <summary>
+            (212) Axis 0 Plot, Extra Data #1 Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis0Set5">
+            <summary>
+            (213) Axis 0 Plot, Extra Data #2 Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis1Set0">
+            <summary>
+            (214) Axis 1 Plot, Target Position Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis1Set1">
+            <summary>
+            (215) Axis 1 Plot, Actual Position Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis1Set2">
+            <summary>
+            (216) Axis 1 Plot, Drive Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis1Set3">
+            <summary>
+            (217) Axis 1 Plot, Status Bits Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis1Set4">
+            <summary>
+            (218) Axis 1 Plot, Extra Data #1 Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis1Set5">
+            <summary>
+            (219) Axis 1 Plot, Extra Data #2 Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis2Set0">
+            <summary>
+            (220) Axis 2 Plot, Target Position Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis2Set1">
+            <summary>
+            (221) Axis 2 Plot, Actual Position Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis2Set2">
+            <summary>
+            (222) Axis 2 Plot, Drive Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis2Set3">
+            <summary>
+            (223) Axis 2 Plot, Status Bits Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis2Set4">
+            <summary>
+            (224) Axis 2 Plot, Extra Data #1 Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis2Set5">
+            <summary>
+            (225) Axis 2 Plot, Extra Data #2 Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis3Set0">
+            <summary>
+            (226) Axis 3 Plot, Target Position Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis3Set1">
+            <summary>
+            (227) Axis 3 Plot, Actual Position Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis3Set2">
+            <summary>
+            (228) Axis 3 Plot, Drive Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis3Set3">
+            <summary>
+            (229) Axis 3 Plot, Status Bits Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis3Set4">
+            <summary>
+            (230) Axis 3 Plot, Extra Data #1 Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis3Set5">
+            <summary>
+            (231) Axis 3 Plot, Extra Data #2 Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis4Set0">
+            <summary>
+            (232) Axis 4 Plot, Target Position Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis4Set1">
+            <summary>
+            (233) Axis 4 Plot, Actual Position Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis4Set2">
+            <summary>
+            (234) Axis 4 Plot, Drive Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis4Set3">
+            <summary>
+            (235) Axis 4 Plot, Status Bits Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis4Set4">
+            <summary>
+            (236) Axis 4 Plot, Extra Data #1 Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis4Set5">
+            <summary>
+            (237) Axis 4 Plot, Extra Data #2 Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis5Set0">
+            <summary>
+            (238) Axis 5 Plot, Target Position Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis5Set1">
+            <summary>
+            (239) Axis 5 Plot, Actual Position Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis5Set2">
+            <summary>
+            (240) Axis 5 Plot, Drive Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis5Set3">
+            <summary>
+            (241) Axis 5 Plot, Status Bits Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis5Set4">
+            <summary>
+            (242) Axis 5 Plot, Extra Data #1 Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis5Set5">
+            <summary>
+            (243) Axis 5 Plot, Extra Data #2 Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis6Set0">
+            <summary>
+            (244) Axis 6 Plot, Target Position Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis6Set1">
+            <summary>
+            (245) Axis 6 Plot, Actual Position Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis6Set2">
+            <summary>
+            (246) Axis 6 Plot, Drive Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis6Set3">
+            <summary>
+            (247) Axis 6 Plot, Status Bits Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis6Set4">
+            <summary>
+            (248) Axis 6 Plot, Extra Data #1 Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis6Set5">
+            <summary>
+            (249) Axis 6 Plot, Extra Data #2 Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis7Set0">
+            <summary>
+            (250) Axis 7 Plot, Target Position Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis7Set1">
+            <summary>
+            (251) Axis 7 Plot, Actual Position Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis7Set2">
+            <summary>
+            (252) Axis 7 Plot, Drive Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis7Set3">
+            <summary>
+            (253) Axis 7 Plot, Status Bits Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis7Set4">
+            <summary>
+            (254) Axis 7 Plot, Extra Data #1 Set (1024 elements)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber100.fn100PlotAxis7Set5">
+            <summary>
+            (255) Axis 7 Plot, Extra Data #2 Set (1024 elements)
+            </summary>
+        </member>
+        <member name="T:RMCLinkNET.FileNumber200">
+            <summary>
+            File numbers used when communicating with the RMC200.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ControllerInfo">
+            <summary>
+            (7) Basic controller read-only information.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200IndDataValues">
+            <summary>
+            (8) Indirect Data Values
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200IndDataMap">
+            <summary>
+            (12) Indirect Data Map Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200CommandArea">
+            <summary>
+            (16) Command Registers for all axes
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ControllerRegs">
+            <summary>
+            (18) Controller Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200DiscreteIO">
+            <summary>
+            (20) Discrete I/O Image Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200TaskManager">
+            <summary>
+            (21) Task Manager Register
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200PlotManager">
+            <summary>
+            (22) Plot Manager Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ImageArea">
+            <summary>
+            (23) Image Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200AxisAssignActive">
+            <summary>
+            (24) Axis Assignment (Active) Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200AxisAssignNew">
+            <summary>
+            (25) Axis Assignment (New) Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ModuleDefs">
+            <summary>
+            (26) Module Definition Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200CommConfig">
+            <summary>
+            (112) Communication Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200AddressMapDF1">
+            <summary>
+            (113) Address Map (DF1) Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200AddressMapMB">
+            <summary>
+            (114) Address Map (Modbus) Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200AddressMapFINS">
+            <summary>
+            (115) Address Map (FINS) Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200AddressMapPN">
+            <summary>
+            (116) Address Map (PROFINET) Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ModuleBase">
+            <summary>
+            (128) Module (Base) Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ModuleSlot0PS">
+            <summary>
+            (129) Module, Slot 0 (Power Supply) Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ModuleSlot1CPU">
+            <summary>
+            (130) Module, Slot 1 (CPU) Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ModuleSlot2">
+            <summary>
+            (131) Module, Slot 2 Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ModuleSlot3">
+            <summary>
+            (132) Module, Slot 3 Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ModuleSlot4">
+            <summary>
+            (133) Module, Slot 4 Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ModuleSlot5">
+            <summary>
+            (134) Module, Slot 5 Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ModuleSlot6">
+            <summary>
+            (135) Module, Slot 6 Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ModuleSlot7">
+            <summary>
+            (136) Module, Slot 7 Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ModuleSlot8">
+            <summary>
+            (137) Module, Slot 8 Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ModuleSlot9">
+            <summary>
+            (138) Module, Slot 9 Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ModuleSlot10">
+            <summary>
+            (139) Module, Slot 10 Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ModuleSlot11">
+            <summary>
+            (140) Module, Slot 11 Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ModuleSlot12">
+            <summary>
+            (141) Module, Slot 12 Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ModuleSlot13">
+            <summary>
+            (142) Module, Slot 13 Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ModuleSlot14">
+            <summary>
+            (143) Module, Slot 14 Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask0">
+            <summary>
+            (192) Task 0 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask1">
+            <summary>
+            (193) Task 1 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask2">
+            <summary>
+            (194) Task 2 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask3">
+            <summary>
+            (195) Task 3 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask4">
+            <summary>
+            (196) Task 4 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask5">
+            <summary>
+            (197) Task 5 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask6">
+            <summary>
+            (198) Task 6 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask7">
+            <summary>
+            (199) Task 7 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask8">
+            <summary>
+            (200) Task 8 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask9">
+            <summary>
+            (201) Task 9 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask10">
+            <summary>
+            (202) Task 10 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask11">
+            <summary>
+            (203) Task 11 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask12">
+            <summary>
+            (204) Task 12 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask13">
+            <summary>
+            (205) Task 13 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask14">
+            <summary>
+            (206) Task 14 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask15">
+            <summary>
+            (207) Task 15 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask16">
+            <summary>
+            (208) Task 16 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask17">
+            <summary>
+            (209) Task 17 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask18">
+            <summary>
+            (210) Task 18 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask19">
+            <summary>
+            (211) Task 19 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask20">
+            <summary>
+            (212) Task 20 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask21">
+            <summary>
+            (213) Task 21 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask22">
+            <summary>
+            (214) Task 22 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask23">
+            <summary>
+            (215) Task 23 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask24">
+            <summary>
+            (216) Task 24 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask25">
+            <summary>
+            (217) Task 25 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask26">
+            <summary>
+            (218) Task 26 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask27">
+            <summary>
+            (219) Task 27 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask28">
+            <summary>
+            (220) Task 28 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask29">
+            <summary>
+            (221) Task 29 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask30">
+            <summary>
+            (222) Task 30 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusTask31">
+            <summary>
+            (223) Task 31 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis0">
+            <summary>
+            (256) Axis 0 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis1">
+            <summary>
+            (257) Axis 1 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis2">
+            <summary>
+            (258) Axis 2 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis3">
+            <summary>
+            (259) Axis 3 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis4">
+            <summary>
+            (260) Axis 4 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis5">
+            <summary>
+            (261) Axis 5 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis6">
+            <summary>
+            (262) Axis 6 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis7">
+            <summary>
+            (263) Axis 7 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis8">
+            <summary>
+            (264) Axis 8 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis9">
+            <summary>
+            (265) Axis 9 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis10">
+            <summary>
+            (266) Axis 10 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis11">
+            <summary>
+            (267) Axis 11 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis12">
+            <summary>
+            (268) Axis 12 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis13">
+            <summary>
+            (269) Axis 13 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis14">
+            <summary>
+            (270) Axis 14 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis15">
+            <summary>
+            (271) Axis 15 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis16">
+            <summary>
+            (272) Axis 16 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis17">
+            <summary>
+            (273) Axis 17 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis18">
+            <summary>
+            (274) Axis 18 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis19">
+            <summary>
+            (275) Axis 19 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis20">
+            <summary>
+            (276) Axis 20 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis21">
+            <summary>
+            (277) Axis 21 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis22">
+            <summary>
+            (278) Axis 22 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis23">
+            <summary>
+            (279) Axis 23 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis24">
+            <summary>
+            (280) Axis 24 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis25">
+            <summary>
+            (281) Axis 25 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis26">
+            <summary>
+            (282) Axis 26 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis27">
+            <summary>
+            (283) Axis 27 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis28">
+            <summary>
+            (284) Axis 28 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis29">
+            <summary>
+            (285) Axis 29 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis30">
+            <summary>
+            (286) Axis 30 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200StatusAxis31">
+            <summary>
+            (287) Axis 31 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis0">
+            <summary>
+            (384) Axis 0 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis1">
+            <summary>
+            (385) Axis 1 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis2">
+            <summary>
+            (386) Axis 2 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis3">
+            <summary>
+            (387) Axis 3 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis4">
+            <summary>
+            (388) Axis 4 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis5">
+            <summary>
+            (389) Axis 5 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis6">
+            <summary>
+            (390) Axis 6 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis7">
+            <summary>
+            (391) Axis 7 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis8">
+            <summary>
+            (392) Axis 8 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis9">
+            <summary>
+            (393) Axis 9 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis10">
+            <summary>
+            (394) Axis 10 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis11">
+            <summary>
+            (395) Axis 11 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis12">
+            <summary>
+            (396) Axis 12 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis13">
+            <summary>
+            (397) Axis 13 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis14">
+            <summary>
+            (398) Axis 14 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis15">
+            <summary>
+            (399) Axis 15 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis16">
+            <summary>
+            (400) Axis 16 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis17">
+            <summary>
+            (401) Axis 17 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis18">
+            <summary>
+            (402) Axis 18 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis19">
+            <summary>
+            (403) Axis 19 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis20">
+            <summary>
+            (404) Axis 20 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis21">
+            <summary>
+            (405) Axis 21 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis22">
+            <summary>
+            (406) Axis 22 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis23">
+            <summary>
+            (407) Axis 23 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis24">
+            <summary>
+            (408) Axis 24 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis25">
+            <summary>
+            (409) Axis 25 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis26">
+            <summary>
+            (410) Axis 26 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis27">
+            <summary>
+            (411) Axis 27 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis28">
+            <summary>
+            (412) Axis 28 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis29">
+            <summary>
+            (413) Axis 29 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis30">
+            <summary>
+            (414) Axis 30 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200ParameterAxis31">
+            <summary>
+            (415) Axis 31 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot0CfgSts">
+            <summary>
+            (512) Plot 0 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot1CfgSts">
+            <summary>
+            (513) Plot 1 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot2CfgSts">
+            <summary>
+            (514) Plot 2 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot3CfgSts">
+            <summary>
+            (515) Plot 3 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot4CfgSts">
+            <summary>
+            (516) Plot 4 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot5CfgSts">
+            <summary>
+            (517) Plot 5 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot6CfgSts">
+            <summary>
+            (518) Plot 6 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot7CfgSts">
+            <summary>
+            (519) Plot 7 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot8CfgSts">
+            <summary>
+            (520) Plot 8 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot9CfgSts">
+            <summary>
+            (521) Plot 9 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot10CfgSts">
+            <summary>
+            (522) Plot 10 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot11CfgSts">
+            <summary>
+            (523) Plot 11 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot12CfgSts">
+            <summary>
+            (524) Plot 12 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot13CfgSts">
+            <summary>
+            (525) Plot 13 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot14CfgSts">
+            <summary>
+            (526) Plot 14 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot15CfgSts">
+            <summary>
+            (527) Plot 15 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot16CfgSts">
+            <summary>
+            (528) Plot 16 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot17CfgSts">
+            <summary>
+            (529) Plot 17 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot18CfgSts">
+            <summary>
+            (530) Plot 18 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot19CfgSts">
+            <summary>
+            (531) Plot 19 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot20CfgSts">
+            <summary>
+            (532) Plot 20 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot21CfgSts">
+            <summary>
+            (533) Plot 21 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot22CfgSts">
+            <summary>
+            (534) Plot 22 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot23CfgSts">
+            <summary>
+            (535) Plot 23 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot24CfgSts">
+            <summary>
+            (536) Plot 24 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot25CfgSts">
+            <summary>
+            (537) Plot 25 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot26CfgSts">
+            <summary>
+            (538) Plot 26 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot27CfgSts">
+            <summary>
+            (539) Plot 27 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot28CfgSts">
+            <summary>
+            (540) Plot 28 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot29CfgSts">
+            <summary>
+            (541) Plot 29 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot30CfgSts">
+            <summary>
+            (542) Plot 30 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot31CfgSts">
+            <summary>
+            (543) Plot 31 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot0DynUA">
+            <summary>
+            (576) Plot 0 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot1DynUA">
+            <summary>
+            (577) Plot 1 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot2DynUA">
+            <summary>
+            (578) Plot 2 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot3DynUA">
+            <summary>
+            (579) Plot 3 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot4DynUA">
+            <summary>
+            (580) Plot 4 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot5DynUA">
+            <summary>
+            (581) Plot 5 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot6DynUA">
+            <summary>
+            (582) Plot 6 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot7DynUA">
+            <summary>
+            (583) Plot 7 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot8DynUA">
+            <summary>
+            (584) Plot 8 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot9DynUA">
+            <summary>
+            (585) Plot 9 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot10DynUA">
+            <summary>
+            (586) Plot 10 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot11DynUA">
+            <summary>
+            (587) Plot 11 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot12DynUA">
+            <summary>
+            (588) Plot 12 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot13DynUA">
+            <summary>
+            (589) Plot 13 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot14DynUA">
+            <summary>
+            (590) Plot 14 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot15DynUA">
+            <summary>
+            (591) Plot 15 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot16DynUA">
+            <summary>
+            (592) Plot 16 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot17DynUA">
+            <summary>
+            (592) Plot 17 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot18DynUA">
+            <summary>
+            (594) Plot 18 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot19DynUA">
+            <summary>
+            (595) Plot 19 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot20DynUA">
+            <summary>
+            (596) Plot 20 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot21DynUA">
+            <summary>
+            (597) Plot 21 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot22DynUA">
+            <summary>
+            (598) Plot 22 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot23DynUA">
+            <summary>
+            (599) Plot 23 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot24DynUA">
+            <summary>
+            (600) Plot 24 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot25DynUA">
+            <summary>
+            (601) Plot 25 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot26DynUA">
+            <summary>
+            (602) Plot 26 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot27DynUA">
+            <summary>
+            (603) Plot 27 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot28DynUA">
+            <summary>
+            (604) Plot 28 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot29DynUA">
+            <summary>
+            (605) Plot 29 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot30DynUA">
+            <summary>
+            (606) Plot 30 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot31DynUA">
+            <summary>
+            (607) Plot 31 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot0StaticUA">
+            <summary>
+            (640) Plot 0 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot1StaticUA">
+            <summary>
+            (656) Plot 1 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot2StaticUA">
+            <summary>
+            (672) Plot 2 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200Plot3StaticUA">
+            <summary>
+            (688) Plot 3 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200VarCurValues">
+            <summary>
+            (1024) Variable Table - Current Values
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200VarInitValues">
+            <summary>
+            (1280) Variable Table - Initial Values
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber200.fn200VarAttributes">
+            <summary>
+            (1536) Variable Table - Initial Values
+            </summary>
+        </member>
+        <member name="T:RMCLinkNET.FileNumber150">
+            <summary>
+            File numbers used when communicating with the RMC150.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150ControllerInfo">
+            <summary>
+            (7) Basic controller read-only information.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150StatusAxis0">
+            <summary>
+            (8) Axis 0 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150StatusAxis1">
+            <summary>
+            (9) Axis 1 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150StatusAxis2">
+            <summary>
+            (10) Axis 2 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150StatusAxis3">
+            <summary>
+            (11) Axis 3 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150StatusAxis4">
+            <summary>
+            (12) Axis 4 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150StatusAxis5">
+            <summary>
+            (13) Axis 5 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150StatusAxis6">
+            <summary>
+            (14) Axis 6 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150StatusAxis7">
+            <summary>
+            (15) Axis 7 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150StatusAxis8">
+            <summary>
+            (16) Axis 8 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150StatusAxis9">
+            <summary>
+            (17) Axis 9 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150StatusAxis10">
+            <summary>
+            (18) Axis 10 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150StatusAxis11">
+            <summary>
+            (19) Axis 11 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150StatusAxis12">
+            <summary>
+            (20) Axis 12 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150StatusAxis13">
+            <summary>
+            (21) Axis 13 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150StatusAxis14">
+            <summary>
+            (22) Axis 14 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150StatusAxis15">
+            <summary>
+            (23) Axis 15 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150ParameterAxis0">
+            <summary>
+            (24) Axis 0 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150ParameterAxis1">
+            <summary>
+            (25) Axis 1 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150ParameterAxis2">
+            <summary>
+            (26) Axis 2 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150ParameterAxis3">
+            <summary>
+            (27) Axis 3 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150ParameterAxis4">
+            <summary>
+            (28) Axis 4 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150ParameterAxis5">
+            <summary>
+            (29) Axis 5 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150ParameterAxis6">
+            <summary>
+            (30) Axis 6 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150ParameterAxis7">
+            <summary>
+            (31) Axis 7 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150ParameterAxis8">
+            <summary>
+            (32) Axis 8 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150ParameterAxis9">
+            <summary>
+            (33) Axis 9 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150ParameterAxis10">
+            <summary>
+            (34) Axis 10 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150ParameterAxis11">
+            <summary>
+            (35) Axis 11 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150ParameterAxis12">
+            <summary>
+            (36) Axis 12 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150ParameterAxis13">
+            <summary>
+            (37) Axis 13 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150ParameterAxis14">
+            <summary>
+            (38) Axis 14 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150ParameterAxis15">
+            <summary>
+            (39) Axis 15 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150CommandArea">
+            <summary>
+            (40) Command Registers for all axes
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150IndDataMap">
+            <summary>
+            (41) Indirect Data Map Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150IndDataValues">
+            <summary>
+            (42) Indirect Data Values
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150AxisAssign">
+            <summary>
+            (43) Axis Assignment Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150ControllerRegs">
+            <summary>
+            (44) Controller Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150CommConfig">
+            <summary>
+            (45) Communication Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150DiscreteIO">
+            <summary>
+            (47) Discrete I/O Image Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150TaskStatus">
+            <summary>
+            (48) Task Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150AxisNames">
+            <summary>
+            (49) Axis Names
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150VarCurValues">
+            <summary>
+            (56) Variable Table - Current Values
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150VarInitValues">
+            <summary>
+            (72) Variable Table - Initial Values
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150VarAttributes">
+            <summary>
+            (88) Variable Table - Attributes
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150ImageArea">
+            <summary>
+            (94) Image Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150PlotSchema">
+            <summary>
+            (95) Plot Schema Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot0CfgSts">
+            <summary>
+            (96) Plot 0 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot1CfgSts">
+            <summary>
+            (97) Plot 1 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot2CfgSts">
+            <summary>
+            (98) Plot 2 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot3CfgSts">
+            <summary>
+            (99) Plot 3 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot4CfgSts">
+            <summary>
+            (100) Plot 4 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot5CfgSts">
+            <summary>
+            (101) Plot 5 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot6CfgSts">
+            <summary>
+            (102) Plot 6 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot7CfgSts">
+            <summary>
+            (103) Plot 7 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot0DynUA">
+            <summary>
+            (104) Plot 0 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot1DynUA">
+            <summary>
+            (105) Plot 1 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot2DynUA">
+            <summary>
+            (106) Plot 2 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot3DynUA">
+            <summary>
+            (107) Plot 3 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot4DynUA">
+            <summary>
+            (108) Plot 4 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot5DynUA">
+            <summary>
+            (109) Plot 5 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot6DynUA">
+            <summary>
+            (110) Plot 6 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot7DynUA">
+            <summary>
+            (111) Plot 7 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot0StaticUA0">
+            <summary>
+            (112) Plot 0, Item 0 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot0StaticUA1">
+            <summary>
+            (113) Plot 0, Item 1 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot0StaticUA2">
+            <summary>
+            (114) Plot 0, Item 2 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot0StaticUA3">
+            <summary>
+            (115) Plot 0, Item 3 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot1StaticUA0">
+            <summary>
+            (116) Plot 1, Item 0 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot1StaticUA1">
+            <summary>
+            (117) Plot 1, Item 1 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot1StaticUA2">
+            <summary>
+            (118) Plot 1, Item 2 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot1StaticUA3">
+            <summary>
+            (119) Plot 1, Item 3 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot2StaticUA0">
+            <summary>
+            (120) Plot 2, Item 0 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot2StaticUA1">
+            <summary>
+            (121) Plot 2, Item 1 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot2StaticUA2">
+            <summary>
+            (122) Plot 2, Item 2 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot2StaticUA3">
+            <summary>
+            (123) Plot 2, Item 3 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot3StaticUA0">
+            <summary>
+            (124) Plot 3, Item 0 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot3StaticUA1">
+            <summary>
+            (125) Plot 3, Item 1 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot3StaticUA2">
+            <summary>
+            (126) Plot 3, Item 2 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot3StaticUA3">
+            <summary>
+            (127) Plot 3, Item 3 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot4StaticUA0">
+            <summary>
+            (128) Plot 4, Item 0 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot4StaticUA1">
+            <summary>
+            (129) Plot 4, Item 1 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot4StaticUA2">
+            <summary>
+            (130) Plot 4, Item 2 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot4StaticUA3">
+            <summary>
+            (131) Plot 4, Item 3 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot5StaticUA0">
+            <summary>
+            (132) Plot 5, Item 0 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot5StaticUA1">
+            <summary>
+            (133) Plot 5, Item 1 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot5StaticUA2">
+            <summary>
+            (134) Plot 5, Item 2 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot5StaticUA3">
+            <summary>
+            (135) Plot 5, Item 3 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot6StaticUA0">
+            <summary>
+            (136) Plot 6, Item 0 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot6StaticUA1">
+            <summary>
+            (137) Plot 6, Item 1 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot6StaticUA2">
+            <summary>
+            (138) Plot 6, Item 2 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot6StaticUA3">
+            <summary>
+            (139) Plot 6, Item 3 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot7StaticUA0">
+            <summary>
+            (140) Plot 7, Item 0 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot7StaticUA1">
+            <summary>
+            (141) Plot 7, Item 1 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot7StaticUA2">
+            <summary>
+            (142) Plot 7, Item 2 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Plot7StaticUA3">
+            <summary>
+            (143) Plot 7, Item 3 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Slot0Settings">
+            <summary>
+            (144) Slot 0 Settings
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Slot1Settings">
+            <summary>
+            (145) Slot 1 Settings
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Slot2Settings">
+            <summary>
+            (146) Slot 2 Settings
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Slot3Settings">
+            <summary>
+            (147) Slot 3 Settings
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Slot4Settings">
+            <summary>
+            (148) Slot 4 Settings
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber150.fn150Slot5Settings">
+            <summary>
+            (149) Slot 5 Settings
+            </summary>
+        </member>
+        <member name="T:RMCLinkNET.FileNumber70">
+            <summary>
+            File numbers used when communicating with the RMC70.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70ControllerInfo">
+            <summary>
+            (7) Basic controller read-only information.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70StatusAxis0">
+            <summary>
+            (8) Axis 0 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70StatusAxis1">
+            <summary>
+            (9) Axis 1 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70StatusAxis2">
+            <summary>
+            (10) Axis 2 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70StatusAxis3">
+            <summary>
+            (11) Axis 3 Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70ParameterAxis0">
+            <summary>
+            (12) Axis 0 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70ParameterAxis1">
+            <summary>
+            (13) Axis 1 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70ParameterAxis2">
+            <summary>
+            (14) Axis 2 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70ParameterAxis3">
+            <summary>
+            (15) Axis 3 Parameter Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70CommandArea">
+            <summary>
+            (16) Command Registers for all axes (6 regs per axis)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70IndDataMap">
+            <summary>
+            (17) Indirect Data Map Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70IndDataValues">
+            <summary>
+            (18) Indirect Data Values
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70AxisAssign">
+            <summary>
+            (19) Axis Assignment Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70ControllerRegs">
+            <summary>
+            (20) Controller Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70CommConfig">
+            <summary>
+            (21) Communication Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70DiscreteIO">
+            <summary>
+            (23) Discrete I/O Image Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70TaskStatus">
+            <summary>
+            (24) Task Status Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70LrgCommandArea">
+            <summary>
+            (25) Command Registers for all axes (10 regs per axis)
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70AnalogInputs">
+            <summary>
+            (26) Analog Input Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70AxisNames">
+            <summary>
+            (27) Axis Names
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70ImageArea">
+            <summary>
+            (30) Image Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70PlotSchema">
+            <summary>
+            (31) Plot Schema Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot0CfgSts">
+            <summary>
+            (32) Plot 0 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot1CfgSts">
+            <summary>
+            (33) Plot 1 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot2CfgSts">
+            <summary>
+            (34) Plot 2 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot3CfgSts">
+            <summary>
+            (35) Plot 3 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot4CfgSts">
+            <summary>
+            (36) Plot 4 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot5CfgSts">
+            <summary>
+            (37) Plot 5 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot6CfgSts">
+            <summary>
+            (38) Plot 6 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot7CfgSts">
+            <summary>
+            (39) Plot 7 Status/Configuration Registers
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot0DynUA">
+            <summary>
+            (40) Plot 0 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot1DynUA">
+            <summary>
+            (41) Plot 1 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot2DynUA">
+            <summary>
+            (42) Plot 2 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot3DynUA">
+            <summary>
+            (43) Plot 3 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot4DynUA">
+            <summary>
+            (44) Plot 4 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot5DynUA">
+            <summary>
+            (45) Plot 5 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot6DynUA">
+            <summary>
+            (46) Plot 6 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot7DynUA">
+            <summary>
+            (47) Plot 7 Dynamic Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot0StaticUA">
+            <summary>
+            (48) Plot 0 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot1StaticUA">
+            <summary>
+            (49) Plot 1 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot2StaticUA">
+            <summary>
+            (50) Plot 2 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot3StaticUA">
+            <summary>
+            (51) Plot 3 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot4StaticUA">
+            <summary>
+            (52) Plot 4 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot5StaticUA">
+            <summary>
+            (53) Plot 5 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot6StaticUA">
+            <summary>
+            (54) Plot 6 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70Plot7StaticUA">
+            <summary>
+            (55) Plot 7 Static Upload Area
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70VarCurValues">
+            <summary>
+            (56) Variable Table - Current Values
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70VarInitValues">
+            <summary>
+            (64) Variable Table - Initial Values
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.FileNumber70.fn70VarAttributes">
+            <summary>
+            (68) Variable Table - Attributes
+            </summary>
+        </member>
+        <member name="T:RMCLinkNET.PingType">
+            <summary>
+            These two constants are used to select whether the RMCLink.IsConnected
+            method will try pinging the device before returning to verify that the
+            link is still connected.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.PingType.DoNotPing">
+            <summary>
+            RMCLink.IsConnected should return immediately whether the link was 
+            connected as of the last communication attempt.
+            </summary>
+        </member>
+        <member name="F:RMCLinkNET.PingType.Ping">
+            <summary>
+            RMCLink.IsConnected should first do a test communication with the device
+            to make sure that the link is still connected.
+            </summary>
+        </member>
+        <member name="T:RMCLinkNET.ReadWriteFailedException">
+            <summary>
+            This exception will be thrown by any Read or Write method that has a communication
+            failure while trying to process its request.
+            </summary>
+        </member>
+        <member name="M:RMCLinkNET.ReadWriteFailedException.#ctor">
+            <summary>
+            Initializes a new instance of the <b>ReadWriteFailedException</b> class.
+            </summary>
+        </member>
+        <member name="M:RMCLinkNET.ReadWriteFailedException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <b>ReadWriteFailedException</b> class with a
+            specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:RMCLinkNET.ReadWriteFailedException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <b>ReadWriteFailedException</b> class with a
+            specified error message and a reference to the inner exception that is the cause
+            of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="inner">The exception that is the cause of the current exception. If the
+            <paramref name="inner"/> parameter is not a null reference, the current exception
+            is raised in a <b>catch</b> block that handles the inner exception.</param>
+        </member>
+        <member name="M:RMCLinkNET.ReadWriteFailedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <b>ReadWriteFailedException</b> class with
+            serialized data.
+            </summary>
+            <param name="info">The object that holds the serialized object data.</param>
+            <param name="context">The contextual information about the source or destination.</param>
+        </member>
+        <member name="T:RMCLinkNET.RMCLink">
+            <summary>
+            This class is used to link to RMC controllers to allow reading information
+            from the controller and writing data to the controller.
+            </summary>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.CreateEthernetLink(RMCLinkNET.DeviceType,System.String)">
+            <summary>
+            Creates an RMCLink object for communicating with a controller (RMC70, RMC100, RMC150, or RMC200)
+            over Ethernet.
+            </summary>
+            
+            <param name="devType">
+            Specifies which type of RMC will be linked to. It must be <b>DeviceType.RMC70</b>,
+            <b>DeviceType.RMC100</b>, <b>DeviceType.RMC150</b>, or <b>DeviceType.RMC200</b>.
+            </param>
+            
+            <param name="hostName">
+            Specifies the TCP/IP host name for the controller to connect to. This can be an IP
+            address string, such as <b>"192.168.0.10"</b> or a textual host name, such as
+            <b>"rmc.deltamotion.com"</b>.
+            </param>
+            
+            <returns>
+            Returns a reference to a new RMCLink object created for communicating with the
+            specified device type over TCP/IP using the specified host name.
+            </returns>
+            
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="hostName"/> parameter refers to a <b>null</b> (<b>Nothing</b> in
+            Visual Basic) object.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Either the <paramref name="devType"/> parameter is not set to <b>DeviceType.RMC70</b>,
+            <b>DeviceType.RMC100</b>, <b>DeviceType.RMC150</b>, <b>DeviceType.RMC200</b>, or the <paramref name="hostName"/>
+            parameter is blank.
+            </exception>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.CreateSerialLink(RMCLinkNET.DeviceType,System.String)">
+            <summary>
+            Creates an RMCLink object for communicating with a controller (either RMC70 or RMC100)
+            over a serial port.
+            </summary>
+            
+            <param name="devType">
+            Specifies which type of RMC will be linked to. It must be either
+            <b>DeviceType.RMC70</b> or <b>DeviceType.RMC100</b>.
+            </param>
+            
+            <param name="portName">
+            Specifies the serial port to use for communicating with the device.
+            Typical names include <b>"COM1"</b> and <b>"COM2"</b>.
+            </param>
+            
+            <returns>
+            Returns a reference to a new RMCLink object created for communicating with the
+            specified device type on the specified serial port.
+            </returns>
+            
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="portName"/> parameter refers to a <b>null</b> (<b>Nothing</b> in Visual
+            Basic) object.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Either the <paramref name="devType"/> parameter is set to neither <b>DeviceType.RMC70</b>
+            nor <b>DeviceType.RMC100</b>, or the <paramref name="portName"/> parameter is blank.
+            </exception>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.CreateUSBLink(RMCLinkNET.DeviceType,System.String)">
+            <summary>
+            Creates an RMCLink object for communicating with a controller (either RMC70, RMC150, or RMC200)
+            over a USB port.
+            </summary>
+            
+            <param name="devType">
+            Specifies which type of RMC will be linked to. It must be either
+            <b>DeviceType.RMC70</b>, <b>DeviceType.RMC150</b>, or <b>DeviceType.RMC200</b>.
+            </param>
+            
+            <param name="deviceId">
+            Specifies which controller to connect to over the USB port. For RMC200 controllers,
+            the parameter should indicate the controller's 9-digit serial number. For RMC150 controllers,
+            this parameter should indicate the Ethernet (MAC) Address in the format "00-50-A0-xx-yy-zz".
+            For RMC75E controllers, this parameter should indicate the controller's 10-digit serial
+            number in the format "7573xxyyzz".
+            </param>
+            
+            <returns>
+            Returns a reference to a new RMCLink object created for communicating over the USB port with a
+            controller with the specified type and device ID.
+            </returns>
+            
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="deviceId"/> parameter refers to a <b>null</b> (<b>Nothing</b> in Visual Basic) object.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Either the <paramref name="devType"/> parameter is set to neither <b>DeviceType.RMC70</b>,
+            <b>DeviceType.RMC150</b>, nor <b>DeviceType.RMC200</b>, or the <paramref name="deviceId"/> parameter is blank.
+            </exception>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.Connect">
+            <summary>
+            Establishes a connection with a controller using the settings specified
+            when the RMCLink object was created (device type, port name, host name).
+            </summary>
+            
+            <exception cref="T:System.InvalidOperationException">
+            This link was already connected. Notice that the link will still be connected after
+            this exception is thrown.
+            </exception>
+            <exception cref="T:RMCLinkNET.CancelledException">
+            This connection attempt was cancelled by a call on another thread to one of the
+            <b>Disconnect</b> and <b>CancelRequest</b> methods.
+            </exception>
+            <exception cref="T:RMCLinkNET.ConnectionNotMadeException">
+            The link could not establish a connection. The exception's <b>Message</b> property will
+            give a brief description of why. Check that the remote device is powered up, check the
+            communication wiring, and check the communication configuration of both the local and
+            remote devices.
+            </exception>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.Disconnect">
+            <summary>
+            Closes the connection, if one has been established, associated with this RMCLink object.
+            </summary>
+            
+            <exception cref="T:System.InvalidOperationException">
+            This link was already disconnected.
+            </exception>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.IsConnected(RMCLinkNET.PingType)">
+             <summary>
+             Checks to see if the link is currently connected to a controller.
+             </summary>
+            
+             <param name="ping">
+             This parameter determines if the link should try sending a test communication with
+             the controller before deciding whether the connection is still established.  Specify
+             <b>PingType.Ping</b> to do the test communication, and <b>PingType.DoNotPing</b> to
+             determine if the connection is established based on the last communication attempt.
+             This parameter is ignored if the connection is known to be closed.
+             </param>
+             
+             <returns>
+             Returns <b>true</b> if the connection is still established (after a Ping is sent out if <i>ping</i> is
+             set to <b>PingType.Ping</b>). Otherwise, returns <b>false</b>.
+             </returns>
+             
+             <exception cref="T:System.ArgumentOutOfRangeException">
+             The <paramref name="ping"/> parameter is set to neither <b>PinType.Ping</b> nor
+             nor <b>PingType.DoNotPing</b>.
+             </exception>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.ReadLFile(System.Int32,System.Int32,System.Int32[],System.Int32,System.Int32)">
+             <summary>
+             Reads one or more integer registers (located in an L file) from the controller.
+             </summary>
+            
+             <param name="file">
+             File number of the registers to be read. See the Address Map for details.
+             </param>
+             
+             <param name="element">
+             Element number of the first register to be read. See the Address Map for details.
+             </param>
+             
+             <param name="data">
+             This Int32 array will be filled with the data read from the controller. The length
+             of this array will dictate how many registers are read.
+             </param>
+             
+             <param name="offset">
+             Specifies the starting offset in the <paramref name="data"/> array.  This is
+             typically zero.
+             </param>
+             
+             <param name="count">
+             Specifies the number of elements to read into <paramref name="data"/>.
+             </param>
+             
+             <exception cref="T:System.ArgumentNullException">
+             The <paramref name="data"/> parameter refers to a <b>null</b> (<b>Nothing</b> in Visual Basic) object.
+             </exception>
+             <exception cref="T:System.ArgumentOutOfRangeException">
+             One of the <paramref name="file"/> and <paramref name="element"/> parameters
+             is out of range. Ensure that <paramref name="file"/> and <paramref name="element"/>
+             are between 0 and 65535.
+             </exception>
+             <exception cref="T:System.ArgumentException">
+             The <paramref name="data"/> array is too long for the requested <paramref name="element"/>
+             parameter. Reading beyond element 65535 is not allowed.
+             </exception>
+             <exception cref="T:System.InvalidOperationException">
+             The link is not currently connected. The <b>Connect</b> method must be called before
+             attempting to read from or write to the controller.
+             </exception>
+             <exception cref="T:RMCLinkNET.CancelledException">
+             This read was cancelled by a call on another thread to one of the <b>Disconnect</b>
+             and <b>CancelRequest</b> methods.
+             </exception>
+             <exception cref="T:RMCLinkNET.ReadWriteFailedException">
+             The read failed due to a communication failure. Check that the remote device is powered up,
+             check the communication wiring, and check the communication configuration of both the local
+             and remote devices. Check the <b>Message</b> property of the exception for a description
+             of the communication failed.
+             </exception>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.ReadFFile(System.Int32,System.Int32,System.Single[],System.Int32,System.Int32)">
+             <summary>
+             Reads one or more floating point registers (located in an F file) from the controller.
+             </summary>
+            
+             <param name="file">
+             File number of the registers to be read. See the Address Map for details.
+             </param>
+             
+             <param name="element">
+             Element number of the first register to be read. See the Address Map for details.
+             </param>
+             
+             <param name="data">
+             This Single array will be filled with the data read from the controller. The length
+             of this array will dictate how many registers are read.
+             </param>
+             
+             <param name="offset">
+             Specifies the starting offset in the <paramref name="data"/> array.  This is
+             typically zero.
+             </param>
+             
+             <param name="count">
+             Specifies the number of elements to read into <paramref name="data"/>.
+             </param>
+             
+             <exception cref="T:System.ArgumentNullException">
+             The <paramref name="data"/> parameter refers to a <b>null</b> (<b>Nothing</b> in Visual Basic) object.
+             </exception>
+             <exception cref="T:System.ArgumentOutOfRangeException">
+             One of the <paramref name="file"/> and <paramref name="element"/> parameters
+             is out of range. Ensure that <paramref name="file"/> and <paramref name="element"/>
+             are between 0 and 65535.
+             </exception>
+             <exception cref="T:System.ArgumentException">
+             The <paramref name="data"/> array is too long for the requested <paramref name="element"/>
+             parameter. Reading beyond element 65535 is not allowed.
+             </exception>
+             <exception cref="T:System.InvalidOperationException">
+             The link is not currently connected. The <b>Connect</b> method must be called before
+             attempting to read from or write to the controller.
+             </exception>
+             <exception cref="T:RMCLinkNET.CancelledException">
+             This read was cancelled by a call on another thread to one of the <b>Disconnect</b>
+             and <b>CancelRequest</b> methods.
+             </exception>
+             <exception cref="T:RMCLinkNET.ReadWriteFailedException">
+             The read failed due to a communication failure. Check that the remote device is powered up,
+             check the communication wiring, and check the communication configuration of both the local
+             and remote devices. Check the <b>Message</b> property of the exception for a description
+             of the communication failed.
+             </exception>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.ReadBit(System.Int32,System.Int32,System.Int32)">
+             <summary>
+             Reads a single bit from an L file register in the controller.
+             </summary>
+            
+             <param name="file">
+             File number of the register with the bit to be read. See the Address Map for details.
+             </param>
+             
+             <param name="element">
+             Element number of the register with the bit to be read. See the Address Map for details.
+             </param>
+             
+             <param name="bit">
+             Number of the bit (0-31) to read in the register. Bits are numbered from least to most
+             significant.
+             </param>
+             
+             <returns>
+             If the bit that was read was 1, then <b>true</b> is returned, otherwise <b>false</b>
+             is returned.
+             </returns>
+             
+             <exception cref="T:System.ArgumentOutOfRangeException">
+             One of the <paramref name="file"/>, <paramref name="element"/>, and <paramref name="bit"/>
+             parameters is out of range. Ensure that <paramref name="file"/> and <paramref name="element"/>
+             are between 0 and 65535, and that <paramref name="bit"/> is between 0 and 31.
+             </exception>
+             <exception cref="T:System.InvalidOperationException">
+             The link is not currently connected. The <b>Connect</b> method must be called before
+             attempting to read from or write to the controller.
+             </exception>
+             <exception cref="T:RMCLinkNET.CancelledException">
+             This read was cancelled by a call on another thread to one of the <b>Disconnect</b>
+             and <b>CancelRequest</b> methods.
+             </exception>
+             <exception cref="T:RMCLinkNET.ReadWriteFailedException">
+             The read failed due to a communication failure. Check that the remote device is powered up,
+             check the communication wiring, and check the communication configuration of both the local
+             and remote devices. Check the <b>Message</b> property of the exception for a description
+             of the communication failed.
+             </exception>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.ReadBitField(System.Int32,System.Int32,System.Int32,System.Int32)">
+             <summary>
+             Reads a bit field (range of bits) from an L file register in the controller.
+             </summary>
+            
+             <param name="file">
+             File number of the register with the bit field to be read. See the Address Map
+             for details.
+             </param>
+             
+             <param name="element">
+             Element number of the register with the bit field to be read. See the Address
+             Map for details.
+             </param>
+             
+             <param name="fieldStart">
+             Bit number (0-31) of the least significant bit in the bit field. Bits are
+             numbered from least to most significant.
+             </param>
+             
+             <param name="fieldLen">
+             Total number of bits in the bit field (1-31).
+             </param>
+             
+             <returns>
+             On success, the value of the bit field is returned. On failure an exception is thrown.
+             </returns>
+             
+             <exception cref="T:System.ArgumentOutOfRangeException">
+             One of the <paramref name="file"/>, <paramref name="element"/>, <paramref name="fieldStart"/>,
+             and <paramref name="fieldLen"/> is out of range. Ensure that <paramref name="file"/> and
+             <paramref name="element"/> are between 0 and 65535, <paramref name="fieldStart"/> is between
+             0 and 31, and that <paramref name="fieldLen"/> is between 1 and 32.
+             </exception>
+             <exception cref="T:System.ArgumentException">
+             A bit field of <paramref name="fieldLen"/> bits starting at the <paramref name="fieldStart"/>
+             bit would overrun the 32-bit integer.
+             </exception>
+             <exception cref="T:System.InvalidOperationException">
+             The link is not currently connected. The <b>Connect</b> method must be called before
+             attempting to read from or write to the controller.
+             </exception>
+             <exception cref="T:RMCLinkNET.CancelledException">
+             This read was cancelled by a call on another thread to one of the <b>Disconnect</b>
+             and <b>CancelRequest</b> methods.
+             </exception>
+             <exception cref="T:RMCLinkNET.ReadWriteFailedException">
+             The read failed due to a communication failure. Check that the remote device is powered up,
+             check the communication wiring, and check the communication configuration of both the local
+             and remote devices. Check the <b>Message</b> property of the exception for a description
+             of the communication failed.
+             </exception>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.WriteLFile(System.Int32,System.Int32,System.Int32[],System.Int32,System.Int32)">
+             <summary>
+             Writes to one or more integer registers (located in L files) in the controller linked
+             to by this RMCLink object.
+             </summary>
+            
+             <param name="file">
+             File number of the registers to be written. See the Address Map for details.
+             </param>
+             
+             <param name="element">
+             Element number of the first register to be written. See the Address Map for details.
+             </param>
+             
+             <param name="data">
+             This Int32 array holds the data to write to the specified controller registers.
+             </param>
+             
+             <param name="offset">
+             Specifies the starting offset in the <paramref name="data"/> array.  This is
+             typically zero.
+             </param>
+             
+             <param name="count">
+             Specifies the number of elements to write from <paramref name="data"/>.
+             </param>
+             
+             <exception cref="T:System.ArgumentNullException">
+             The <paramref name="data"/> parameter refers to a <b>null</b> (<b>Nothing</b> in Visual Basic) object.
+             </exception>
+             <exception cref="T:System.ArgumentOutOfRangeException">
+             One of the <paramref name="file"/> and <paramref name="element"/> parameters
+             is out of range. Ensure that <paramref name="file"/> and <paramref name="element"/>
+             are between 0 and 65535.
+             </exception>
+             <exception cref="T:System.ArgumentException">
+             Either one or more registers requested to write to were read-only, or the
+             <paramref name="data"/> array is too long for the requested <paramref name="element"/>
+             parameter. Reading beyond element 65535 is not allowed.
+             </exception>
+             <exception cref="T:System.InvalidOperationException">
+             The link is not currently connected. The <b>Connect</b> method must be called before
+             attempting to read from or write to the controller.
+             </exception>
+             <exception cref="T:RMCLinkNET.CancelledException">
+             This write was cancelled by a call on another thread to one of the <b>Disconnect</b>
+             and <b>CancelRequest</b> methods.
+             </exception>
+             <exception cref="T:RMCLinkNET.ReadWriteFailedException">
+             The write failed due to a communication failure. Check that the remote device is powered up,
+             check the communication wiring, and check the communication configuration of both the local
+             and remote devices. Check the <b>Message</b> property of the exception for a description
+             of the communication failed.
+             </exception>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.WriteFFile(System.Int32,System.Int32,System.Single[],System.Int32,System.Int32)">
+             <summary>
+             Writes to one or more floating point registers (located in F files) in the controller linked
+             to by this RMCLink object.
+             </summary>
+            
+             <param name="file">
+             File number of the registers to be written. See the Address Map for details.
+             </param>
+             
+             <param name="element">
+             Element number of the first register to be written. See the Address Map for details.
+             </param>
+             
+             <param name="data">
+             This Single array holds the data to write to the specified controller registers.
+             </param>
+             
+             <param name="offset">
+             Specifies the starting offset in the <paramref name="data"/> array.  This is
+             typically zero.
+             </param>
+             
+             <param name="count">
+             Specifies the number of elements to write from <paramref name="data"/>.
+             </param>
+             
+             <exception cref="T:System.ArgumentNullException">
+             The <paramref name="data"/> parameter refers to a <b>null</b> (<b>Nothing</b> in Visual Basic) object.
+             </exception>
+             <exception cref="T:System.ArgumentOutOfRangeException">
+             One of the <paramref name="file"/> and <paramref name="element"/> parameters
+             is out of range. Ensure that <paramref name="file"/> and <paramref name="element"/>
+             are between 0 and 65535.
+             </exception>
+             <exception cref="T:System.ArgumentException">
+             Either one or more registers requested to write to were read-only, or the
+             <paramref name="data"/> array is too long for the requested <paramref name="element"/>
+             parameter. Reading beyond element 65535 is not allowed.
+             </exception>
+             <exception cref="T:System.InvalidOperationException">
+             The link is not currently connected. The <b>Connect</b> method must be called before
+             attempting to read from or write to the controller.
+             </exception>
+             <exception cref="T:RMCLinkNET.CancelledException">
+             This write was cancelled by a call on another thread to one of the <b>Disconnect</b>
+             and <b>CancelRequest</b> methods.
+             </exception>
+             <exception cref="T:RMCLinkNET.ReadWriteFailedException">
+             The write failed due to a communication failure. Check that the remote device is powered up,
+             check the communication wiring, and check the communication configuration of both the local
+             and remote devices. Check the <b>Message</b> property of the exception for a description
+             of the communication failed.
+             </exception>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.CancelRequest">
+            <summary>
+            This method can be used in multi-threaded applications to cancel the currently-in-progress
+            read, write, or connect request.
+            </summary>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.FRegToLReg(System.Single)">
+            <summary>
+            Retrieves the value of a LONG register when read by ReadFFile.
+            </summary>
+            <param name="regValue">System.Single value returned by ReadFFile to use as a raw 32-bit integer.</param>
+            <returns>Returns the 32-bit integer value that was read by ReadFFile.</returns>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.LRegToFReg(System.Int32)">
+            <summary>
+            Computes the value that a LONG register should have when written by WriteFFile.
+            </summary>
+            <param name="regValue">32-bit integer value to be sent as is by WriteFFile.</param>
+            <returns>Returns a System.Single value to send by WriteFFile.</returns>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.ReadImage(System.Int32)">
+             <summary>
+             Reads the controller image into an integer array. This image can be applied to another
+             controller of the same physical configuration using the WriteImage method. For saving
+             and restoring the controller image using a file, use the ReadImageToFile and
+             WriteImageFromFile methods. This method is only supported on the RMC75E and RMC150E
+             controllers with firmware 3.34.0 or newer.
+             </summary>
+            
+             <param name="flags">
+             Flags used to control how the image is created. Refer to the RMCTools documentation
+             on the Image Area for a current list of options. As of this writing no options have
+             been defined. Specify zero (0) to use default options.
+             </param>
+             
+             <returns>
+             The array of <b>Integer</b> elements will contain the controller image read from the
+             controller. The length of this array will vary depending on the actual contents of
+             the controller.
+             </returns>
+             
+             <exception cref="T:System.ArgumentOutOfRangeException">
+             The <paramref name="flags"/> parameter is out of range.
+             </exception>
+             <exception cref="T:RMCLinkNET.CancelledException">
+             This read was cancelled by a call on another thread to one of the <b>Disconnect</b>
+             and <b>CancelRequest</b> methods.
+             </exception>
+             <exception cref="T:System.InvalidOperationException">
+             One of the following circumstances occurred:
+             <list type="bullet">
+            		<item><description>
+            			The link is not currently connected. The <b>Connect</b> method must be called
+            			before attempting to read from the controller.
+            		</description></item>
+            		<item><description>
+            			The Image Area is not supported by this controller. The image area is not
+            			supported by the RMC75S and RMC75P, and requires firmware 3.34.0 or newer.
+            		</description></item>
+             </list>
+             </exception>
+             <exception cref="T:RMCLinkNET.ReadWriteFailedException">
+             The read failed due to a communication failure. Check that the remote device is powered up,
+             check the communication wiring, and check the communication configuration of both the local
+             and remote devices. Check the <b>Message</b> property of the exception for a description
+             of the communication failure.
+             </exception>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.ReadImageToFile(System.Int32,System.String)">
+             <summary>
+             Reads the controller image and saves it in a file. This file can then be written and
+             applied to another controller of the same physical configuration using the WriteImageFromFile
+             method. For saving and restoring the controller image using an array rather than a file,
+             use the ReadImage and WriteImage methods. This method is only supported on the RMC75E
+             and RMC150E controllers with firmware 3.34.0 or newer.
+             </summary>
+            
+             <param name="flags">
+             Flags used to control how the image is created. Refer to the RMCTools documentation on the
+             Image Area for a current list of options. As of this writing no options have been defined.
+             Specify zero (0) to use default options.
+             </param>
+             
+             <param name="fileName">
+             File name and path to save the controller image into.
+             </param>
+             
+             <exception cref="T:System.ArgumentNullException">
+             The <paramref name="fileName"/> parameter refers to a <b>null</b> (<b>Nothing</b> in Visual
+             Basic) object.
+             </exception>
+             <exception cref="T:System.ArgumentOutOfRangeException">
+             The <paramref name="flags"/> parameter is out of range, or the <paramref name="fileName"/>
+             parameter is blank.
+             </exception>
+             <exception cref="T:RMCLinkNET.CancelledException">
+             This read was cancelled by a call on another thread to one of the <b>Disconnect</b>
+             and <b>CancelRequest</b> methods.
+             </exception>
+             <exception cref="T:System.InvalidOperationException">
+             One of the following circumstances occurred:
+             <list type="bullet">
+            		<item><description>
+            			The link is not currently connected. The <b>Connect</b> method must be called
+            			before attempting to read from from the controller.
+            		</description></item>
+            		<item><description>
+            			The Image Area is not supported by this controller. The image area is not
+            			supported by the RMC75S and RMC75P, and requires firmware 3.34.0 or newer.
+            		</description></item>
+             </list>
+             </exception>
+             <exception cref="T:RMCLinkNET.ReadWriteFailedException">
+             The read failed due to a communication failure. Check that the remote device is powered up,
+             check the communication wiring, and check the communication configuration of both the local
+             and remote devices. Check the <b>Message</b> property of the exception for a description
+             of the communication failure.
+             </exception>
+             <exception cref="T:System.UnauthorizedAccessException">
+             The caller does not have the required permission. -or- <paramref name="fileName"/> specified a file that is read-only.
+             </exception>
+             <exception cref="T:System.IO.PathTooLongException">
+             The specified path, file name, or both exceed the system-defined maximum length. For example,
+             on Windows-based platforms, paths must be less than 248 characters, and file names must be less
+             than 260 characters.
+             </exception>
+             <exception cref="T:System.IO.DirectoryNotFoundException">
+             The specified path is invalid, (for example, it is on an unmapped drive).
+             </exception>
+             <exception cref="T:System.IO.IOException">
+             An I/O error occurred while creating or writing to the file.
+             </exception>
+             <exception cref="T:System.NotSupportedException">
+             <paramref name="fileName"/> is in an invalid format.
+             </exception>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.WriteImage(System.Int32,System.Int32[])">
+             <summary>
+             Writes the specified controller image to the controller and applies it to the
+             controller. By default, the image will be saved to flash and the controller
+             will be restarted. The controller image must be obtained using the ReadImage
+             method. For saving and restoring the controller image using a file, use the
+             ReadImageToFile and WriteImageFromFile methods. This method is only supported
+             on the RMC75E and RMC150E controllers with firmware 3.34.0 or newer.
+             </summary>
+            
+             <param name="flags">
+             Flags used to control how the image is applied. Refer to the RMCTools documentation
+             on the Image Area for a current list of options. Specify zero (0) to use default options.
+             </param>
+             
+             <param name="data">
+             An array of <b>Integer</b> values containing the controller image. The data must
+             have been created using the <b>ReadImage</b> method.
+             </param>
+             
+             <exception cref="T:System.ArgumentNullException">
+             The <paramref name="data"/> parameter refers to a <b>null</b> (<b>Nothing</b> in Visual
+             Basic) object.
+             </exception>
+             <exception cref="T:System.ArgumentOutOfRangeException">
+             The <paramref name="flags"/> parameter is out of range.
+             </exception>
+             <exception cref="T:RMCLinkNET.CancelledException">
+             This read was cancelled by a call on another thread to one of the <b>Disconnect</b>
+             and <b>CancelRequest</b> methods.
+             </exception>
+             <exception cref="T:System.InvalidOperationException">
+             One of the following circumstances occurred:
+             <list type="bullet">
+            		<item><description>
+            			The link is not currently connected. The <b>Connect</b> method must be called
+            			before attempting to read from or write to the controller.
+            		</description></item>
+            		<item><description>
+            			The Image Area is not supported by this controller. The image area is not
+            			supported by the RMC75S and RMC75P, and requires firmware 3.34.0 or newer.
+            		</description></item>
+            		<item><description>
+            			The image is corrupt or not a recognized version.
+            		</description></item>
+            		<item><description>
+            			The <b>Do Not Restart Controller (+16)</b> option was selected, but the image
+            			requires restarting the controller.
+            		</description></item>
+            		<item><description>
+            			The <b>Do Not Restart Controller (+16)</b> option was selected but the
+            			controller is not in PROGRAM mode.
+            		</description></item>
+            		<item><description>
+            			The image downloaded is intended for a different physical controller.
+            		</description></item>
+             </list>
+             </exception>
+             <exception cref="T:RMCLinkNET.ReadWriteFailedException">
+             The write failed due to a communication failure. Check that the remote device is powered up,
+             check the communication wiring, and check the communication configuration of both the local
+             and remote devices. Check the <b>Message</b> property of the exception for a description
+             of the communication failure.
+             </exception>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.WriteImageFromFile(System.Int32,System.String)">
+             <summary>
+             Loads the controller image from the specified file, writes it to the controller, and
+             applies it. By default, the image will be saved to flash and the controller will be
+             restarted. The controller image file must have been created using the ReadImageToFile
+             method. For saving and restoring the controller image using an array in memory instead
+             of using a file, use the ReadImage and WriteImage methods. This method is only supported
+             on the RMC75E and RMC150E controllers with firmware 3.34.0 or newer.
+             </summary>
+            
+             <param name="flags">
+             Flags used to control how the image is applied. Refer to the RMCTools documentation on
+             the Image Area for a current list of options. Specify zero (0) to use default options.
+             </param>
+             
+             <param name="fileName">
+             The file name to load the controller image from. This image file should be created
+             by the <b>ReadImageToFile</b> method.
+             </param>
+             
+             <exception cref="T:System.ArgumentNullException">
+             The <paramref name="fileName"/> parameter refers to a <b>null</b> (<b>Nothing</b> in Visual Basic) object.
+             </exception>
+             <exception cref="T:System.ArgumentOutOfRangeException">
+             The <paramref name="flags"/> parameter is out of range, or the <paramref name="fileName"/>
+             parameter is blank.
+             </exception>
+             <exception cref="T:RMCLinkNET.CancelledException">
+             This write was cancelled by a call on another thread to one of the <b>Disconnect</b>
+             and <b>CancelRequest</b> methods.
+             </exception>
+             <exception cref="T:System.InvalidOperationException">
+             One of the following circumstances occurred:
+             <list type="bullet">
+            		<item><description>
+            			The link is not currently connected. The <b>Connect</b> method must be called
+            			before attempting to read from or write to the controller.
+            		</description></item>
+            		<item><description>
+            			The Image Area is not supported by this controller. The image area is not
+            			supported by the RMC75S and RMC75P, and requires firmware 3.34.0 or newer.
+            		</description></item>
+            		<item><description>
+            			The image is corrupt or not a recognized version.
+            		</description></item>
+            		<item><description>
+            			The <b>Do Not Restart Controller (+16)</b> option was selected, but the image
+            			requires restarting the controller.
+            		</description></item>
+            		<item><description>
+            			The <b>Do Not Restart Controller (+16)</b> option was selected but the
+            			controller is not in PROGRAM mode.
+            		</description></item>
+            		<item><description>
+            			The image downloaded is intended for a different physical controller.
+            		</description></item>
+             </list>
+             </exception>
+             <exception cref="T:RMCLinkNET.ReadWriteFailedException">
+             The write failed due to a communication failure. Check that the remote device is powered up,
+             check the communication wiring, and check the communication configuration of both the local
+             and remote devices. Check the <b>Message</b> property of the exception for a description
+             of the communication failure.
+             </exception>
+             <exception cref="T:System.IO.PathTooLongException">
+             The specified path, file name, or both exceed the system-defined maximum length. For example,
+             on Windows-based platforms, paths must be less than 248 characters, and file names must be less
+             than 260 characters.
+             </exception>
+             <exception cref="T:System.IO.DirectoryNotFoundException">
+             The specified path is invalid, (for example, it is on an unmapped drive).
+             </exception>
+             <exception cref="T:System.UnauthorizedAccessException">
+             <paramref name="fileName"/> specified a directory -or- The caller does not have the required permission.
+             </exception>
+             <exception cref="T:System.IO.FileNotFoundException">
+             The file specified in <paramref name="fileName"/> was not found.
+             </exception>
+             <exception cref="T:System.NotSupportedException">
+             <paramref name="fileName"/> is in an invalid format.
+             </exception>
+             <exception cref="T:System.IO.EndOfStreamException">
+             The end of the stream was reached unexpectedly.
+             </exception>
+             <exception cref="T:System.IO.IOException">
+             An I/O error occurred while reading from the file.
+             </exception>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.Dispose">
+            <summary>
+            Releases the unmanaged resources used by the <b>RMCLink</b> object.
+            </summary>
+        </member>
+        <member name="M:RMCLinkNET.RMCLink.Finalize">
+            <summary>
+            Releases unmanaged resources and performs other cleanup operations before the
+            <b>Component</b> is reclaimed by garbage collection.
+            </summary>
+        </member>
+        <member name="T:RMCLinkNET.RMCLink.ConversionUnion">
+            <summary>
+            This private structure is used by the FRegToLReg and LRegToFReg functions.
+            </summary>
+        </member>
+        <member name="T:RMCLinkCOM.DeviceType">
+            <summary>
+            Matches the COM control's expectations for the DeviceType enumeration values.
+            </summary>
+        </member>
+        <member name="T:RMCLinkCOM.PingType">
+            <summary>
+            Matches the COM control's expectations for the PingType enumeration values.
+            </summary>
+        </member>
+        <member name="T:RMCLinkCOM.RMCLinkServerClass">
+            <summary>
+            This class holds the CLSID of the RMCLinkServer object.
+            </summary>
+            <remarks>
+            Notice that in C#, the class should be created as "new RMCLinkServer()" instead
+            of "new RMCLinkServerClass()", which will require a cast to the interface.
+            </remarks>
+        </member>
+        <member name="T:RMCLinkCOM.RMCLinkServer">
+            <summary>
+            This is the CoClass object for RMCLinkServer. Use it to create new instances
+            using CoCreateInstance behind the scenes.
+            </summary>
+        </member>
+        <member name="T:RMCLinkCOM.IRMCLinkServer">
+            <summary>
+            This is the interface used by the RMCLinkServer object.
+            </summary>
+        </member>
+        <member name="T:RMCLinkCOM.RMCLink">
+            <summary>
+            This is the non-creatable RMCLink class. Instances of this type only come
+            from IRMCLinkServer's methods.
+            </summary>
+        </member>
+        <member name="T:RMCLinkCOM.IRMCLink">
+            <summary>
+            This is the interface used by the RMCLink object. 
+            </summary>
+        </member>
+    </members>
+</doc>
